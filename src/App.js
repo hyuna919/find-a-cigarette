@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { db } from "./firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { fetchCigarettes } from "./firebase";
+
 function App() {
   const [cigarettes, setCigarettes] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showBrand, setShowBrand] = useState(false);
 
-  // 담배 데이터 가져오기
-  const fetchCigarettes = async () => {
-    const querySnapshot = await getDocs(collection(db, "cigarette"));
-    const data = querySnapshot.docs.map((doc) => doc.data());
-    setCigarettes(data);
-  };
-
   useEffect(() => {
-    fetchCigarettes();
+    fetchCigarettes().then((data) => setCigarettes(data));
   }, []);
 
   const handleNext = () => {
@@ -59,28 +52,3 @@ function App() {
 }
 
 export default App;
-//   // 데이터 호출
-//   const [cigarettes, setCigarettes] = useState([]);
-
-//   const getCigarettes = async () => {
-//     const querySnapshot = await getDocs(collection(db, "cigarette"));
-//     const list = querySnapshot.docs.map((doc) => doc.data());
-//     setCigarettes(list);
-//   };
-
-//   useEffect(() => {
-//     getCigarettes();
-//   }, []);
-
-//   return (
-//     <div>
-//       <h1>담배 퀴즈 앱</h1>
-//       <ul>
-//         {cigarettes.map((cigarette, index) => (
-//           <li key={index}>
-//             {cigarette.brand}-{cigarette.full_name}
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );

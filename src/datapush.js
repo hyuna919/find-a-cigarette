@@ -1,4 +1,5 @@
 /*
+[node버전이 너무 낮은 경우]
   0) npm i dotenv
     dotenv 설치(나중에 꼭 지워야/react내부의 dotenv랑 충돌하기 때문에)
   1) .env파일이 이 파일과 같은 위치에 있어야...
