@@ -10,8 +10,9 @@ function shuffle(array) {
 }
 
 function App() {
+  const [length, setLength] = useState([]);
   const [cigarettes, setCigarettes] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(1);
   const [fullname, setFullname] = useState(false);
 
   useEffect(() => {
@@ -31,6 +32,8 @@ function App() {
 
       shuffle(data); // 순서 섞기
       setCigarettes(data);
+
+      setLength(data.length);
     }, []);
   }, []);
 
@@ -39,7 +42,7 @@ function App() {
       setFullname(true);
     } else {
       setFullname(false);
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % cigarettes.length);
+      setCurrentIndex(currentIndex + 1);
     }
   };
 
@@ -58,6 +61,9 @@ function App() {
         <p className="text-lg text-gray-200">
           담배의 이름과 별명을 보고 매대에서 담배를 찾으세요!
         </p>
+        <p className="text-lg text-gray-200">
+          ({currentIndex} / {length})
+        </p>
       </div>
       <div
         className="p-6 bg-white text-gray-900 rounded-2xl shadow-lg text-center w-full max-w-xs cursor-pointer transition-transform transform active:scale-95"
@@ -66,7 +72,6 @@ function App() {
         {/* 랜덤으로 하나 뽑아서 질문 */}
         <h1 className="text-2xl font-bold">
           {
-            /* {cigarettes[currentIndex].name + */
             cigarettes[currentIndex].question[
               Math.floor(Math.random() * cigarettes[currentIndex].qLength)
             ]
