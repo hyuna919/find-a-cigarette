@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { fetchCigarettes } from "./firebase";
 
+// 피셔 에이츠 셔플
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1)); // 랜덤*(현위치 + 1), floor():소수점제거
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 function App() {
   const [cigarettes, setCigarettes] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fullname, setFullname] = useState(false);
 
   useEffect(() => {
+    // 데이터 가져오기
     fetchCigarettes().then((data) => {
+      // 별칭과 줄임말을 이용해 문제 만들기
       data = data.map((item) => {
         const question = item.nickname.filter((el) => el && String(el).trim());
         question.push(item.short_name);
@@ -15,10 +25,11 @@ function App() {
         return {
           ...item,
           question,
-          qLength: question.length, // 여기서 바로 question.length 사용
+          qLength: question.length,
         };
       });
 
+      shuffle(data); // 순서 섞기
       setCigarettes(data);
     }, []);
   }, []);
