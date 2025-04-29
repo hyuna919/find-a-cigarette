@@ -4,10 +4,12 @@ import { fetchCigarettes } from "../firebase";
 
 // 피셔 에이츠 셔플
 function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
+  console.log("s: " + array[0].full_name);
+  for (let i = array.length - 1; i >= 0; i--) {
     let j = Math.floor(Math.random() * (i + 1)); // 랜덤*(현위치 + 1), floor():소수점제거
     [array[i], array[j]] = [array[j], array[i]];
   }
+  console.log("e: " + array[0].full_name);
 }
 
 function QuizPage({
@@ -34,6 +36,8 @@ function QuizPage({
 
       // 3. 갯수만큼 자르기
       if (selectedLength !== "전체" && /^\d+$/.test(selectedLength)) {  // 숫자만 체크
+        console.log("selectedLength", selectedLength);
+
         const cnt = parseInt(selectedLength, 10);
         data = data.slice(0, cnt);
       }
