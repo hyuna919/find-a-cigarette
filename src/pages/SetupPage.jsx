@@ -6,7 +6,7 @@ import "../style/styles.css";
 
 
 const numberOptions = ["전체", 30, 50, 100];
-const brandOptions = ["전체", "더 원", "던힐", "디스", "라일락", "레종", "말보루", "메비우스", "버지니아", "보헴", "심플", "에쎄", "카멜", "켄트", "클라우드 나인", "팔리아멘트", "하모니", "한라산"];  // 브랜드 보강해야
+const brandOptions = ["전체", "더 원", "던힐", "디스", "라일락", "레종", "말보로", "메비우스", "버지니아", "보헴", "심플", "에쎄", "카멜", "켄트", "클라우드 나인", "팔리아멘트", "하모니", "한라산"];  // 브랜드 보강해야
 
 function SetupPage({ onNext, onBack, selectedLength, setSelectedLength, selectedBrand, setSelectedBrand }) {
   // const [selectedLength, setSelectedLength] = useState("전체");
