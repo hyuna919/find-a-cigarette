@@ -10,8 +10,9 @@ function IntroductionPage({ onNext }) {
       <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-100 to-white px-6">
         <h1 className="text-6xl font-extrabold text-green-600 mb-4">담배를 찾아라</h1>
         <p className="text-center text-gray-700 mb-8 leading-relaxed">
-          편의점 알바생의 필수 앱!<br />
-          상품명과 자주 쓰이는 별명으로 140종 담배를 금세 찾을 수 있어요.
+          편의점 직원을 위한 담배 퀴즈! <br />
+          퀴즈 카드의 담배를 매대에서 찾으며 외워봅시다.
+
         </p>
         <button
           onClick={onNext}
@@ -36,7 +37,7 @@ function IntroductionPage({ onNext }) {
           ))}
         </div>
       </section>
-    </div>
+    </div >
   );
 }
 
