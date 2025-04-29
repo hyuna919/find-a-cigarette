@@ -113,7 +113,7 @@ function QuizPage({
       </div>
 
       <p className="mt-4 text-sm text-gray-500 text-center">
-        화면을 터치하여 정답을 확인하고 다음 문제로 이동하세요
+        박스를 터치하여 상품명을 확인하고 다음 문제로 이동하세요
       </p>
     </div>
   );
