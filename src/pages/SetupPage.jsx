@@ -6,7 +6,7 @@ import "../style/styles.css";
 
 
 const numberOptions = ["전체", 30, 50, 100];
-const brandOptions = ["전체", "에쎄", "말보루", "던힐", "메비우스"];  // 브랜드 보강해야
+const brandOptions = ["전체", "더 원", "던힐", "디스", "라일락", "레종", "말보루", "메비우스", "버지니아", "보헴", "심플", "에쎄", "카멜", "켄트", "클라우드 나인", "팔리아멘트", "하모니", "한라산"];  // 브랜드 보강해야
 
 function SetupPage({ onNext, onBack, selectedLength, setSelectedLength, selectedBrand, setSelectedBrand }) {
   // const [selectedLength, setSelectedLength] = useState("전체");
@@ -45,8 +45,8 @@ function SetupPage({ onNext, onBack, selectedLength, setSelectedLength, selected
               }
               }
               className={`px-4 py-2 rounded-full border ${selectedLength === option
-                  ? "border-orange-500 text-orange-500 font-semibold"
-                  : "border-gray-300 text-gray-600"
+                ? "border-orange-500 text-orange-500 font-semibold"
+                : "border-gray-300 text-gray-600"
                 } transition`}
             >
               {option}
@@ -79,8 +79,8 @@ function SetupPage({ onNext, onBack, selectedLength, setSelectedLength, selected
               key={brand}
               onClick={() => setSelectedBrand(brand)}
               className={`px-4 py-2 rounded-full border ${selectedBrand === brand
-                  ? "border-green-500 text-green-500 font-semibold"
-                  : "border-gray-300 text-gray-600"
+                ? "border-green-500 text-green-500 font-semibold"
+                : "border-gray-300 text-gray-600"
                 } transition`}
             >
               {brand}
