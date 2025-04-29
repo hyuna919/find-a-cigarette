@@ -4,6 +4,7 @@ import IntroductionPage from "./pages/IntroductionPage";
 import SetupPage from "./pages/SetupPage";
 import QuizPage from "./pages/QuizPage";
 import ResultPage from "./pages/ResultPage";
+import Footer from "./Footer";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -16,23 +17,27 @@ function App() {
   const renderPage = () => {
     switch (step) {
       case 1:
+        return <IntroductionPage
+          selectedLength={selectedLength}
+          selectedBrand={selectedBrand}
+          onNext={goNext}
+          onBack={goBack} />
+      case 2:
         return <SetupPage
-        selectedLength={selectedLength}
-        setSelectedLength={setSelectedLength}
+          selectedLength={selectedLength}
+          setSelectedLength={setSelectedLength}
           selectedBrand={selectedBrand}
           setSelectedBrand={setSelectedBrand}
           onNext={goNext}
           onBack={goBack}
         />;
-      case 2:
+      case 3:
         return <QuizPage
-        selectedLength={selectedLength}
+          selectedLength={selectedLength}
           selectedBrand={selectedBrand}
           onNext={goNext}
           onBack={goBack}
         />;
-      case 3:
-        return <QuizPage onNext={goNext} onBack={goBack} />;
       case 4:
         return <ResultPage onBack={goBack} />;
       default:
@@ -50,7 +55,9 @@ function App() {
           ← 뒤로가기
         </button>
       )}
-      {renderPage()}
+      <div className="container mx-auto p-4">
+        {renderPage()}
+      </div>
     </div>
   );
 }
