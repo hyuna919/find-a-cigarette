@@ -46,7 +46,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800">
+    <div className="flex-col min-h-screen bg-gray-100 text-gray-800">
       {step > 1 && (
         <button
           className="absolute top-4 left-4 text-orange-500"
@@ -55,10 +55,14 @@ function App() {
           ← 뒤로가기
         </button>
       )}
-      <div className="container mx-auto p-4">
-        {renderPage()}
+      <div className="wrapper">
+        <div className="contentWrapper mx-auto p-4">
+          {renderPage()}
+        </div>
+        <Footer />
       </div>
     </div>
+
   );
 }
 
